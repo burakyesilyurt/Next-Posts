@@ -18,7 +18,8 @@ export const Card = ({ title, content, author, createdDate, _id }: Prop) => {
               query: {
                 title: title,
                 content: content,
-                author: author
+                author: author,
+                id: _id
               }
             }}>
               <span className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 ">Devamını Oku</span></Link>

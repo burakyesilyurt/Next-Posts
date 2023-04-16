@@ -4,7 +4,7 @@ export const metadata = {
   title: 'Test',
 }
 
-export default function Post({ params: { id }, searchParams: { title, author, content } }: QueryString) {
+export default function Post({ searchParams: { title, author, content, id } }: QueryString) {
 
   return (
     <div className="grow flex min-h-screen flex-col items-center p-24">
@@ -18,6 +18,5 @@ export default function Post({ params: { id }, searchParams: { title, author, co
 
 
 type QueryString = {
-  params: { id: string };
-  searchParams: { title: string; content: string; author: string }
+  searchParams: { title: string; content: string; author: string; id: string }
 }
