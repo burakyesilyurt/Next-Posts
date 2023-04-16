@@ -13,7 +13,6 @@ export default async function Home() {
         {res.data.map((post: Post) => (
           <Card content={post.content} title={post.title} author={post.author} createdDate={post.createdDate} key={post._id} _id={post._id} />
         )
-
         )}
       </div>
     </>

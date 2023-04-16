@@ -1,7 +1,8 @@
 import Link from "next/link"
-
+import CardTime from "./card-time"
 
 export const Card = ({ title, content, author, createdDate, _id }: Prop) => {
+
   return (
     <>
       <div className="max-w-2xl w-6/12 lg:w-full rounded overflow-hidden shadow-lg bg-gray-700 my-6 shadow-gray-800">
@@ -28,17 +29,18 @@ export const Card = ({ title, content, author, createdDate, _id }: Prop) => {
               <span className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Yanıt Ver</span>
             </button>
           </div>
-          <span className="text-xs py-1 text-slate-300">Date Here</span>
+          <CardTime date={createdDate} />
         </div>
       </div>
     </>
   )
 }
 
+
 type Prop = {
   title: string;
   content: string;
   author: string;
-  createdDate: Date;
+  createdDate: string;
   _id: string
 }
