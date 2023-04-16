@@ -19,6 +19,7 @@ export const Card = ({ title, content, author, createdDate, _id }: Prop) => {
                 title: title,
                 content: content,
                 author: author,
+                createdDate: createdDate.toString(),
                 id: _id
               }
             }}>

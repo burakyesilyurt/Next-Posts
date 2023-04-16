@@ -24,7 +24,6 @@ export const postPosts = async(query:Query) =>{
     const client = await clientPromise;
     const db = client.db("nextform");
     const data = query;
-    data.createdDate = new Date();
     //const post:Post = {author:"burak",title:"test",content:"test1"}
     const result= await db
         .collection("form")
@@ -42,5 +41,5 @@ export const postPosts = async(query:Query) =>{
    title:String;
    author:String;
    content:String;
-   createdDate?:Date
+   createdDate:Date
  }
