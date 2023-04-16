@@ -21,7 +21,7 @@ export default async function Home() {
 
 const getPosts = async () => {
   const url = "http://localhost:3000/api/posts";
-  const data = await fetch(url);
+  const data = await fetch(url, { cache: "no-store" });
   const res = await data.json();
   return res;
 }
@@ -31,5 +31,5 @@ type Post = {
   author: string;
   title: string;
   content: string;
-  createdDate: Date
+  createdDate: string
 }

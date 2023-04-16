@@ -3,30 +3,30 @@ export const timeAgo = (date: string) => {
 
   let interval = Math.floor(seconds / 31536000);
   if (interval > 1) {
-    return interval + ' yıl önce';
+    return {value:interval + ' yıl önce',time:6000000};
   }
 
   interval = Math.floor(seconds / 2592000);
   if (interval > 1) {
-    return interval + ' ay önce';
+    return {value:interval + ' ay önce',time:6000000};
   }
 
   interval = Math.floor(seconds / 86400);
   if (interval > 1) {
-    return interval + ' gün önce';
+    return {value:interval + ' gün önce',time:6000000};
   }
 
   interval = Math.floor(seconds / 3600);
   if (interval > 1) {
-    return interval + ' saat önce';
+    return {value:interval + ' saat önce',time:6000000};
   }
 
   interval = Math.floor(seconds / 60);
   if (interval >= 1) {
-    return interval + ' dakika önce';
+    return {value:interval + ' dakika önce', time:60000};
   }
 
-  if (seconds < 10) return 'şimdi';
+  if (seconds < 10) return {value:'şimdi', time:10000}
 
-  return Math.floor(seconds) + ' saniye önce';
+  return {value:Math.floor(seconds) + ' saniye önce',time:10000};
 };

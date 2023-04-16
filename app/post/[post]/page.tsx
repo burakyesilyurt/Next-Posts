@@ -1,5 +1,4 @@
 import { ErrorPage } from "@/components/error-page"
-import { timeAgo } from "@/utils/time-ago"
 import { Metadata } from 'next';
 
 export async function generateMetadata(
@@ -17,7 +16,7 @@ export default function Post({ searchParams: { title, author, content, createdDa
 
   if (!title || !author || !content || !createdDate || !id) return <ErrorPage />
 
-  console.log(timeAgo(createdDate))
+
 
   return (
     <div className='grow flex min-h-screen flex-col items-center mt-24'>
