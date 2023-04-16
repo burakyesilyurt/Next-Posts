@@ -9,7 +9,6 @@ const CardTime = ({ date }: { date: string }) => {
     const interval = setInterval(() => {
       setTime(timeAgo(date))
     }, 10000);
-
     return () => clearInterval(interval);
   }, []);
   return (

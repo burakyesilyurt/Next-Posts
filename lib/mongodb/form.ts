@@ -9,6 +9,7 @@ try {
     const result= await db
       .collection("form")
       .find({})
+      .sort({createdDate:-1})
       .limit(10)
       .toArray();
   return result;

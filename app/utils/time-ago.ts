@@ -22,11 +22,11 @@ export const timeAgo = (date: string) => {
   }
 
   interval = Math.floor(seconds / 60);
-  if (interval > 1) {
+  if (interval >= 1) {
     return interval + ' dakika önce';
   }
 
   if (seconds < 10) return 'şimdi';
 
-  return Math.floor(seconds) + ' birkaç saniye önce';
+  return Math.floor(seconds) + ' saniye önce';
 };
