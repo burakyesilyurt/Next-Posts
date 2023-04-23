@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import CardTime from "@/components/card-time"
 import { FixedLayout } from "@/components/fixed-layout"
 import { ActionButton } from "@/components/action-button"
+import { CommentAdd } from "@/components/comment-add"
+import { CommentCard } from "@/components/comment-card"
 
 export async function generateMetadata(
   { searchParams }: QueryString,
@@ -41,18 +43,10 @@ export default function Post({ searchParams: { title, author, content, createdDa
         </div>
       </div>
 
-      <div className='flex flex-col items-center'>
-        <div className="max-w-2xl lg:w-full rounded overflow-hidden shadow-lg bg-gray-700 my-6 shadow-gray-800 w-4/5 p-2">
-          <div className="px-9 py-2">
-            <div className="flex justify-between">
-              <p className="font-bold mb-2">Yazar</p>
-              <span>Saat</span>
-            </div>
-            <p className="text-base mt-5">Content</p>
-            <div id="commentTrigger" className="target:block hidden">Bingo!</div>
-          </div>
-        </div>
+      <div id="commentTrigger" className="target:block hidden">
+        <CommentAdd />
       </div>
+      <CommentCard />
       <FixedLayout>
         <a href="#commentTrigger">
           <ActionButton comment="Yorum Yap" />

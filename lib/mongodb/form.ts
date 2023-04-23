@@ -1,6 +1,8 @@
 
+import { ObjectId } from "mongodb";
 import clientPromise from "./mongodb";
-import {Query} from "@/types/queryTypes"
+import {Query,CommentQuery} from "@/types/queryTypes"
+
 
 export const getPosts = async() =>{
 try {
@@ -38,5 +40,42 @@ export const postPosts = async(query:Query) =>{
       return {error:"an error ocurred"}
   }
 }
+
+export const getComments = async(id:string) =>{
+  try{
+
+  const client = await clientPromise;
+  const db = client.db("nextform");
+
+  const result = await db
+        .collection("form")
+        .find({_id:new ObjectId(id)},{projection:{comments:1}})
+        .limit(10)
+        .toArray()
+    return result;
+  }catch(error){
+    console.error(error)
+    return {error:"Failed to fetch data"}
+  }
+}
+
+export const postComment = async(id:string,queryComment:CommentQuery) =>{
+  try {
+    const client = await clientPromise;
+    const db = client.db("nextform");
+    const data = queryComment
+    const result= await db
+        .collection("form")
+        .updateOne({_id:new ObjectId(id)},{$addToSet:{comments:data}});
+
+        return {result:result}
+        
+  } catch (e) {
+      console.error(e);
+      return {error:"an error ocurred"}
+  }
+}
+
+
 
  
