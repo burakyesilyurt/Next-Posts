@@ -64,9 +64,15 @@ export const postComment = async(id:string,queryComment:CommentQuery) =>{
     const client = await clientPromise;
     const db = client.db("nextform");
     const data = queryComment
+    
     const result= await db
         .collection("form")
-        .updateOne({_id:new ObjectId(id)},{$addToSet:{comments:data}});
+        .updateOne({_id:new ObjectId(id)},{$addToSet:{comments:{
+          $each:[{data:data,id:new ObjectId()}]
+        }
+      }
+    }
+    );
 
         return {result:result}
         

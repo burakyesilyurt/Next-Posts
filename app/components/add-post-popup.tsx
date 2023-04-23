@@ -6,8 +6,6 @@ const AddPost = ({ comment }: { comment: string }) => {
   const [popUp, setPopUp] = useState(false);
 
   return (
-
-
     <>
       <a onClick={() => setPopUp(!popUp)}>
         <ActionButton comment={comment} />
@@ -15,7 +13,6 @@ const AddPost = ({ comment }: { comment: string }) => {
 
       {popUp && <PopUpScreen setPopUp={setPopUp} />}
     </>
-
   )
 }
 
@@ -49,10 +46,7 @@ const PopUpScreen = ({ setPopUp }: { setPopUp: (val: boolean) => void }) => {
     if (result.status == 201) {
       setPopUp(false)
       router.refresh()
-
     }
-
-
   }
 
   return (

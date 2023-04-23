@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import CardTime from "@/components/card-time"
 import { FixedLayout } from "@/components/fixed-layout"
 import { ActionButton } from "@/components/action-button"
-import { CommentAdd } from "@/components/comment-add"
+import CommentAdd from "@/components/comment-add"
 import { CommentCard } from "@/components/comment-card"
 
 export async function generateMetadata(
@@ -15,14 +15,10 @@ export async function generateMetadata(
   };
 }
 
-export default function Post({ searchParams: { title, author, content, createdDate, id } }: QueryString) {
-
-
+export default async function Post({ searchParams: { title, author, content, createdDate, id } }: QueryString) {
 
   if (!title || !author || !content || !createdDate || !id) return <ErrorPage />
-
-
-
+  const commentsData = await getComments(id)
   return (
     <>
       <div className='grow flex flex-col items-center mt-24'>
@@ -44,9 +40,12 @@ export default function Post({ searchParams: { title, author, content, createdDa
       </div>
 
       <div id="commentTrigger" className="target:block hidden">
-        <CommentAdd />
+        <CommentAdd id={id} />
       </div>
-      <CommentCard />
+
+      {commentsData && commentsData.map((comment: Comment) => (
+        <CommentCard author={comment.data.author} content={comment.data.content} date={comment.data.createdDate} key={comment.id} />
+      )).reverse()}
       <FixedLayout>
         <a href="#commentTrigger">
           <ActionButton comment="Yorum Yap" />
@@ -58,10 +57,23 @@ export default function Post({ searchParams: { title, author, content, createdDa
   )
 }
 
-
+const getComments = async (id: string) => {
+  const url = `http://localhost:3000/api/posts/comments?id=${id}`;
+  const data = await fetch(url, { cache: "no-store" });
+  const res = await data.json();
+  return res.data[0].comments;
+}
 
 type QueryString = {
   searchParams: { title: string; content: string; author: string; createdDate: string; id: string }
+}
+type Comment = {
+  data: {
+    content: string;
+    author: string;
+    createdDate: string;
+  }
+  id: string
 }
 
 
