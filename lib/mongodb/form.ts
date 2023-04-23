@@ -1,5 +1,6 @@
 
 import clientPromise from "./mongodb";
+import {Query} from "@/types/queryTypes"
 
 export const getPosts = async() =>{
 try {
@@ -38,9 +39,4 @@ export const postPosts = async(query:Query) =>{
   }
 }
 
- type Query = {
-   title:String;
-   author:String;
-   content:String;
-   createdDate:Date
- }
+ 
