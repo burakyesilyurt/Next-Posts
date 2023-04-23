@@ -25,9 +25,6 @@ export const Card = ({ title, content, author, createdDate, _id }: Prop) => {
               }
             }}>
               <span className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 ">Devamını Oku</span></Link>
-            <button className="mb-5 sm:mb-0 sm:mr-5 lg:mt-0 pt-2 md:pt-0">
-              <span className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Yanıt Ver</span>
-            </button>
           </div>
           <CardTime date={createdDate} />
         </div>

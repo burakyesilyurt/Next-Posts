@@ -8,7 +8,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default async function Home() {
   const res = await getPosts();
-
   return (
     <>
       <div className='grow flex min-h-screen flex-col items-center mt-24'>
@@ -26,7 +25,7 @@ export default async function Home() {
 }
 
 const getPosts = async () => {
-  const url = "http://localhost:3000/api/posts";
+  const url = `http://${process.env.URL || "localhost:3000"}/api/posts`;
   const data = await fetch(url, { cache: "no-store" });
   const res = await data.json();
   return res;
