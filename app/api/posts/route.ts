@@ -25,9 +25,9 @@ export async function POST(request: Request) {
     }
     const response = await postPosts(newPost)
 
-    return NextResponse.json({message:"Successfully Posted",response:response}, {status: 201})
+    return NextResponse.json({message:"Successfully Posted",status:201,response:response}, {status: 201})
   }catch(e){
-    return NextResponse.json({message:"An Error Occured"},{status:500})
+    return NextResponse.json({message:"An Error Occured",status:500},{status:500})
   }
 }
 

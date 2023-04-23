@@ -1,6 +1,7 @@
 import { ErrorPage } from "@/components/error-page"
 import { Metadata } from 'next';
 import CardTime from "@/components/card-time"
+import { FixedLayout } from "@/components/fixed-layout"
 import { ActionButton } from "@/components/action-button"
 
 export async function generateMetadata(
@@ -52,14 +53,12 @@ export default function Post({ searchParams: { title, author, content, createdDa
           </div>
         </div>
       </div>
+      <FixedLayout>
+        <a href="#commentTrigger">
+          <ActionButton comment="Yorum Yap" />
+        </a>
+      </FixedLayout>
 
-      <div className="fixed bottom-5 right-5 md:bottom-4 md:right-12 lg:bottom-20 lg:right-16">
-        <div>
-          <a href="#commentTrigger">
-            <ActionButton />
-          </a>
-        </div>
-      </div>
     </>
 
   )

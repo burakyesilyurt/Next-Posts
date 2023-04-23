@@ -1,5 +1,8 @@
 import { Inter } from 'next/font/google'
 import { Card } from "@/components/card"
+import { FixedLayout } from "@/components/fixed-layout"
+import AddPost from "@/components/add-post-popup"
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +18,9 @@ export default async function Home() {
         )
         )}
       </div>
+      <FixedLayout>
+        <AddPost comment='Post Ekle' />
+      </FixedLayout>
     </>
   )
 }
