@@ -29,8 +29,8 @@ const CommentAdd = ({ id }: { id: string }) => {
     if (result.status == 201) {
       e.target.author.value = ""
       e.target.content.value = ""
-      router.back()
       router.refresh()
+      router.back()
 
     }
   }

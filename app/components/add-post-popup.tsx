@@ -45,8 +45,9 @@ const PopUpScreen = ({ setPopUp }: { setPopUp: (val: boolean) => void }) => {
     const result = await response.json()
     if (result.status == 201) {
       setPopUp(false)
-      router.refresh()
+      setTimeout(() => router.refresh(), 1000);
     }
+
   }
 
   return (

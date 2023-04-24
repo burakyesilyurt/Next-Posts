@@ -1,3 +1,4 @@
+
 export const timeAgo = (date: string) => {
   const seconds = Math.floor((new Date().valueOf() - new Date(date).valueOf()) / 1000);
 

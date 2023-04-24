@@ -5,10 +5,9 @@ import { useEffect, useState } from "react";
 
 const CardTime = ({ date }: { date: string }) => {
 
-  //yeni
   const [time, setTime] = useState(timeAgo(date));
+  // yeni
   useEffect(() => {
-
     if (time.time < 6000000) {
       const interval = setInterval(() => {
         setTime(timeAgo(date))
@@ -16,8 +15,11 @@ const CardTime = ({ date }: { date: string }) => {
       return () => clearInterval(interval);
     }
   }, []);
+
   return (
-    <span className="text-xs py-1 text-slate-300">{time.value}</span>
+    <>
+      <span className="text-xs py-1 text-slate-300">{time.value}</span>
+    </>
   )
 }
 

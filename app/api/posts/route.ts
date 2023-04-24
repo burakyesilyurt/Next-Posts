@@ -3,6 +3,7 @@ import {getPosts,postPosts} from "@lib/mongodb/form"
 import {Query} from "@/types/queryTypes"
 
 
+
 export async function GET(request: Request) { 
   try{
   const data = await getPosts()
@@ -26,6 +27,7 @@ export async function POST(request: Request) {
     }
     const response = await postPosts(newPost)
 
+    
     return NextResponse.json({message:"Successfully Posted",status:201,response:response}, {status: 201})
   }catch(e){
     return NextResponse.json({message:"An Error Occured",status:500},{status:500})

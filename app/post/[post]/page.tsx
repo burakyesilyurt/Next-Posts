@@ -37,6 +37,7 @@ export default async function Post({ searchParams: { title, author, content, cre
             <CardTime date={createdDate} />
           </div>
         </div>
+        {commentsData.length !== 0 && <div className="max-w-2xl lg:w-full overflow-hidden border-b-2 border-indigo-500 pb-5 w-4/5 text-center">Yorumlar</div>}
       </div>
 
       <div id="commentTrigger" className="target:block hidden">
@@ -51,7 +52,6 @@ export default async function Post({ searchParams: { title, author, content, cre
           <ActionButton comment="Yorum Yap" />
         </a>
       </FixedLayout>
-
     </>
 
   )
