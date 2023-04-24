@@ -25,7 +25,8 @@ To run this project, you'll need to have Node.js (v12 or later) and npm (v6 or l
 
 ### Deployment
 
-To deploy the application, you'll need to build the production version of the app using the following command: `npm run build`
+To deploy the application, you'll need to build the production version of the app using the following command: 
+`npm run build`
 
 Then, you can start the app in production mode with the following command: `npm run start`
 
