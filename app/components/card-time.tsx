@@ -11,7 +11,7 @@ const CardTime = ({ date }: { date: string }) => {
     if (time.time < 6000000) {
       const interval = setInterval(() => {
         setTime(timeAgo(date))
-      }, time.time);
+      }, 10000);
       return () => clearInterval(interval);
     }
   }, []);

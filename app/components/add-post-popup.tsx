@@ -1,5 +1,4 @@
 "use client";
-import { useRouter } from 'next/navigation';
 import { useState } from "react";
 import { ActionButton } from "./action-button"
 const AddPost = ({ comment }: { comment: string }) => {
@@ -18,7 +17,7 @@ const AddPost = ({ comment }: { comment: string }) => {
 
 
 const PopUpScreen = ({ setPopUp }: { setPopUp: (val: boolean) => void }) => {
-  const router = useRouter()
+
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
@@ -45,7 +44,7 @@ const PopUpScreen = ({ setPopUp }: { setPopUp: (val: boolean) => void }) => {
     const result = await response.json()
     if (result.status == 201) {
       setPopUp(false)
-      setTimeout(() => router.refresh(), 1000);
+      window.location.reload()
     }
 
   }
@@ -75,8 +74,8 @@ const PopUpScreen = ({ setPopUp }: { setPopUp: (val: boolean) => void }) => {
               </div>
 
               <button type="reset" className="w-1/6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Temizle</button>
-              <button type="submit" className="w-1/3 ml-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Post</button>
 
+              <button type="submit" className="w-1/3 ml-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Post</button>
             </form>
           </div>
         </div>

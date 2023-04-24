@@ -1,6 +1,7 @@
 import Link from "next/link"
 import CardTime from "./card-time"
-
+import dynamic from 'next/dynamic'
+const CardTimeHeavy = dynamic(() => import('./card-time'), { ssr: false })
 export const Card = ({ title, content, author, createdDate, _id }: Prop) => {
 
   return (
@@ -26,7 +27,8 @@ export const Card = ({ title, content, author, createdDate, _id }: Prop) => {
             }}>
               <span className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 ">Devamını Oku</span></Link>
           </div>
-          <CardTime date={createdDate} />
+          <CardTimeHeavy date={createdDate} />
+
         </div>
       </div>
     </>
