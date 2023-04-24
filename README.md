@@ -4,7 +4,7 @@ Next-Posts is a simple web application built with Next.js that allows users to r
 
 ## Features
 
-- Blog posts: users can view existing blog posts, create new ones, and view individual posts
+- Blog posts: users can view existing blog posts, create new ones, and view individual posts.
 - Comment: users can comment existing blog posts.
 
 ## Getting started
