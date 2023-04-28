@@ -35,6 +35,7 @@ Then, you can start the app in production mode with the following command: `npm 
 - [Next.js](https://nextjs.org/) - a React framework for building server-side rendered and static websites
 - [MongoDB](https://www.mongodb.com/) - a document-based NoSQL database that provides high performance, scalability, and flexibility.
 - [Tailwind CSS](https://tailwindcss.com/) - a utility-first CSS framework
+- [TypeScript](https://www.typescriptlang.org/) - a superset of JavaScript that adds optional static typing and other features to improve developer productivity and code maintainability.
 
 
 ## Contributing
