@@ -60,8 +60,7 @@ export default async function Post({ searchParams: { title, author, content, cre
 }
 
 const getComments = async (id: string) => {
-  const url = `${process.env.SITE_URI}/posts/comments?id=${id}`;
-  const data = await fetch(url, { cache: "no-store" });
+  const data = await fetch(`${process.env.SITE_URI}/posts/comments?id=${id}`, { cache: "no-store" });
   const res = await data.json();
   return res.data[0].comments;
 }

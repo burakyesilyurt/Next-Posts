@@ -29,8 +29,7 @@ export default async function Home() {
 }
 
 const getPosts = async () => {
-  const url = `${process.env.SITE_URI}/api/posts`;
-  const data = await fetch(url, { cache: "no-store" });
+  const data = await fetch(`${process.env.SITE_URI}/api/posts`, { cache: "no-store" });
   const res = await data.json();
   return res;
 }
