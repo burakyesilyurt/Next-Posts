@@ -5,6 +5,7 @@ import { FixedLayout } from "@/components/fixed-layout"
 import { ActionButton } from "@/components/action-button"
 import CommentAdd from "@/components/comment-add"
 import { CommentCard } from "@/components/comment-card"
+import { BackArrow } from "@/components/back-arrow"
 
 export async function generateMetadata(
   { searchParams }: QueryString,
@@ -21,6 +22,7 @@ export default async function Post({ searchParams: { title, author, content, cre
   const commentsData = await getComments(id)
   return (
     <>
+      <BackArrow />
       <div className='grow flex flex-col items-center mt-24'>
         <div className="max-w-2xl lg:w-full rounded overflow-hidden shadow-lg bg-gray-700 my-6 shadow-gray-800 w-4/5">
           <div className="px-6 py-4">

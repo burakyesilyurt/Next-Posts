@@ -29,8 +29,8 @@ const CommentAdd = ({ id }: { id: string }) => {
     if (result.status == 201) {
       e.target.author.value = ""
       e.target.content.value = ""
-      router.refresh()
-      router.back()
+      window.location.replace(window.location.href.split("#")[0]);
+
 
     }
   }
