@@ -60,7 +60,7 @@ export default async function Post({ searchParams: { title, author, content, cre
 }
 
 const getComments = async (id: string) => {
-  const url = `${process.env.URL}/api/posts/comments?id=${id}`;
+  const url = "https://next-posts-mu.vercel.app/api/posts/comments?id=${id}";
   const data = await fetch(url, { cache: "no-store" });
   const res = await data.json();
   return res.data[0].comments;
