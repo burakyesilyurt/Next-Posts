@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import { Card } from "@/components/card"
 import { FixedLayout } from "@/components/fixed-layout"
+import { ErrorPage } from "@/components/error-page"
 import AddPost from "@/components/add-post-popup"
 
 
@@ -8,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default async function Home() {
   const res = await getPosts();
+  if (!res.data) {
+    return <ErrorPage errorMessage='Databasede bir hata oluştu' />
+  }
   return (
     <>
       <div className='grow flex min-h-screen flex-col items-center mt-24'>

@@ -7,7 +7,7 @@ export const Card = ({ title, content, author, createdDate, _id }: Prop) => {
     <>
       <div className="max-w-2xl w-6/12 lg:w-full rounded overflow-hidden shadow-lg bg-gray-700 my-6 shadow-gray-800">
         <div className="px-6 py-4">
-          <div className="flex justify-between font-bold text-xl mb-2">
+          <div className="flex justify-between font-bold text-xl mb-2 flex-col md:flex-row">
             <h1>{title}</h1>
             <span className="mr-5">Yazar: {author}</span>
           </div>
@@ -28,8 +28,9 @@ export const Card = ({ title, content, author, createdDate, _id }: Prop) => {
               }
             }}>
               <span className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 ">Devamını Oku</span></Link>
+            <CardTimeHeavy date={createdDate} />
           </div>
-          <CardTimeHeavy date={createdDate} />
+
         </div>
       </div>
     </>

@@ -18,7 +18,7 @@ export async function generateMetadata(
 
 export default async function Post({ searchParams: { title, author, content, createdDate, id } }: QueryString) {
 
-  if (!title || !author || !content || !createdDate || !id) return <ErrorPage />
+  if (!title || !author || !content || !createdDate || !id) return <ErrorPage errorMessage="Bir Hata Oluştu" />
   const commentsData = await getComments(id)
   return (
     <>
