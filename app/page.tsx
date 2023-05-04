@@ -29,7 +29,8 @@ export default async function Home() {
 }
 
 const getPosts = async () => {
-  const url = "https://next-posts-mu.vercel.app/api/posts";
+  const urldom = process.env.SITE_URI || "http://localhost:3000"
+  const url = `${urldom}/api/posts`;
   const data = await fetch(url, { cache: "no-store" });
   const res = await data.json();
   return res;
