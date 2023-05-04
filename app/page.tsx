@@ -25,7 +25,7 @@ export default async function Home() {
 }
 
 const getPosts = async () => {
-  const url = `${process.env.URL}/api/posts`;
+  const url = "https://next-posts-mu.vercel.app/api/posts";
   const data = await fetch(url, { cache: "no-store" });
   const res = await data.json();
   return res;
