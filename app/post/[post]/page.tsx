@@ -18,8 +18,11 @@ export async function generateMetadata(
 
 export default async function Post({ searchParams: { title, author, content, createdDate, id } }: QueryString) {
 
-  if (!title || !author || !content || !createdDate || !id) return <ErrorPage errorMessage="Bir Hata Oluştu" />
+  if (!title || !author || !content || !createdDate || !id) {
+    return <ErrorPage errorMessage="Bir Hata Oluştu" />
+  }
   const commentsData = await getComments(id)
+
   return (
     <>
       <BackArrow />
@@ -60,7 +63,8 @@ export default async function Post({ searchParams: { title, author, content, cre
 }
 
 const getComments = async (id: string) => {
-  const data = await fetch(`${process.env.SITE_URI}/posts/comments?id=${id}`, { cache: "no-store" });
+  const url = `${process.env.SITE_URI}/api/posts/comments?id=${id}`;
+  const data = await fetch(url, { cache: "no-store" });
   const res = await data.json();
   return res.data[0].comments;
 }
