@@ -29,8 +29,7 @@ export default async function Home() {
 }
 
 const getPosts = async () => {
-  const urldom = process.env.SITE_URI || "http://localhost:3000"
-  const url = `${urldom}/api/posts`;
+  const url = `${process.env.SITE_URI}/api/posts`;
   const data = await fetch(url, { cache: "no-store" });
   const res = await data.json();
   return res;
