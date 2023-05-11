@@ -4,8 +4,8 @@ Next-Posts is a simple web application built with Next.js that allows users to r
 
 ## Preview
 ![nextPost](https://user-images.githubusercontent.com/76653369/236794736-7235c365-39c9-472e-853d-507b13dd1b3a.gif)
-[Live Preview](https://next-posts-mu.vercel.app/)
-#
+## [Live Preview](https://next-posts-mu.vercel.app/)
+
 ## Features
 
 - Blog posts: users can view existing blog posts, create new ones, and view individual posts.
